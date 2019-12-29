@@ -18,5 +18,20 @@
 .App-link {
   color: #61dafb;
 }
+.spinner-border{
+  width: 3rem;
+  height: 3rem;
+}
 
-
+.card-body{
+  max-height: 100%;
+  /* margin: 100px; */
+}
+.card img{
+  max-width: 200px;
+  max-height: 300px;
+  margin-bottom: 15px;
+}
+.contain {
+  padding-bottom: 20px;
+}

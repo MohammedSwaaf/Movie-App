@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import SearchForm from './searchForm';
- 
+import Spinner from './spinner';
+import Movies from './movies';
+
 class Home extends Component {
-    render() { 
+    render() {
+        const { loading } = this.props;
         return (
             <div className='container'>
-                <SearchForm/>
+                <SearchForm />
+                {loading ? <Spinner /> : <Movies />}
             </div>
         );
     }
 }
- 
-export default Home;
+const mapStateToProps = state => ({
+    loading: state.search.loading
+})
+export default connect(mapStateToProps)(Home);
