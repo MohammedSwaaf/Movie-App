@@ -13,7 +13,7 @@ export const fetchMovies = text => dispatch => {
     axios.get(`http://www.omdbapi.com/?apikey=${APIKey}&s=${text}`)
         .then(res => dispatch({
             type: FETCH_MOVIES,
-            payload: res.data.Search
+            payload: res.data
         }))
         .catch(err => console.log(err))
 }

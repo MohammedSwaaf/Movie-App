@@ -12,8 +12,8 @@ class Film extends Component {
     render() {
         const { loading, movie } = this.props;
         let movieDetailes = (
-            <React.Fragment>
-                <div className="container ">
+            
+                <div className="container film">
                     <div className="row">
                         <div className="col-md-4 card card-body">
                             <img src={movie.Poster} className="thumbnail" alt="Poster" />
@@ -65,7 +65,6 @@ class Film extends Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
         )
             let content = loading? <Spinner />: movieDetailes;
         return (

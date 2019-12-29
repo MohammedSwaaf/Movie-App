@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchMovies, fetchMovies ,setLoading } from '../../redux/actions/searchAction';
+import { searchMovies, fetchMovies, setLoading } from '../../redux/actions/searchAction';
 class SearchForm extends Component {
     // taken values 
     onChange = (e) => {
@@ -9,8 +9,17 @@ class SearchForm extends Component {
     // submit function to get the movies
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.fetchMovies(this.props.text);
-        this.props.setLoading()
+
+        if (this.props.text.length === 0) {
+            alert(`The faild can't be empty`)
+        }
+        else if(this.props.text.length <= 2){
+            alert(`Please enter the name of movie`)
+        }
+        else {
+            this.props.fetchMovies(this.props.text);
+            this.props.setLoading()
+        }
     }
     render() {
         return (
@@ -39,4 +48,4 @@ const mapStateToProps = state => ({
     text: state.search.text
 })
 // coonect react and redux togther
-export default connect(mapStateToProps, { searchMovies, fetchMovies , setLoading})(SearchForm);
+export default connect(mapStateToProps, { searchMovies, fetchMovies, setLoading })(SearchForm);

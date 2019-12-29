@@ -5,8 +5,8 @@ class MovieCard extends Component {
     render() {
         // the varibel who maps on the array 
         const movie = this.props.movie
-        return (
-            <div className='contain col-md-4 mb-5'>
+        let data = (
+            
                 <div className="card text-center">
                     <div className="card-body ">
                         <img src={movie.Poster} className="card-img-top movCard" alt="..." />
@@ -14,7 +14,12 @@ class MovieCard extends Component {
                         <Link to={'/film/' + movie.imdbID} className="btn btn-dark">Detailes</Link>
                     </div>
                 </div>
-            </div>
+        )
+        // let content = movie === null ? <h1>There are no movies</h1> : {data} ;
+        return (
+            <div className='contain col-md-3 mb-5'>
+               {data}
+           </div>
         );
     }
 }
