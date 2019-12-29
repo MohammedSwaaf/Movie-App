@@ -6,8 +6,8 @@ import MovieCard from './movieCard';
 class Movies extends Component {
     render() {
         const movies  = this.props.movies;
-        let content = movies.length > 0 ? movies.map((movie, index) => 
-        <MovieCard key={index} movie={movie} />) : null;
+        let content = movies.length > 0 ? movies.map(
+            (movie, index) => <MovieCard key={index} movie={movie} />) : null;
         return (
             <div className='row'>
                 {content}

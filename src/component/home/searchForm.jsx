@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchMovies,fetchMovies } from '../../redux/actions/searchAction';
+import { searchMovies, fetchMovies } from '../../redux/actions/searchAction';
 class SearchForm extends Component {
     // taken values 
     onChange = (e) => {
         this.props.searchMovies(e.target.value)
     }
     // submit function to get the movies
-    onSubmit = (e) =>{
+    onSubmit = (e) => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text)
     }
@@ -25,7 +25,7 @@ class SearchForm extends Component {
                             <input type="text" className="form-control" id="formGroupExampleInput"
                                 placeholder="Search Movies, TV Series ..." onChange={this.onChange} />
                         </div>
-                        <button type="button" className="btn btn-dark btn-bg mt-3">Search</button>
+                        <button type="submit" className="btn btn-dark btn-bg mt-3">Search</button>
 
                     </form>
                 </div>
@@ -38,4 +38,4 @@ const mapStateToProps = state => ({
     text: state.search.text
 })
 // coonect react and redux togther
-export default connect(mapStateToProps, {searchMovies,fetchMovies})(SearchForm);
+export default connect(mapStateToProps, { searchMovies, fetchMovies })(SearchForm);
