@@ -1,4 +1,4 @@
-import { SEARCH_MOVIE, FETCH_MOVIES,FETCH_SINGLE_MOVIE } from './typeOfActions';
+import { SEARCH_MOVIE, FETCH_MOVIES,FETCH_SINGLE_MOVIE, LOADING } from './typeOfActions';
 import axios from 'axios';
 import { APIKey } from '../../apiKey'
 // Action to get the value from the user
@@ -24,4 +24,9 @@ export const fetchSingleMovie = id => dispatch => {
             payload: res.data
         }))
         .catch(err =>console.log(err))
+}
+export const setLoading =()=>{
+    return{
+        type: LOADING
+    }
 }

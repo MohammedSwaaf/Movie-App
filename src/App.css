@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 .App-header {
   background-color: #282c34;
@@ -27,7 +27,7 @@
   max-height: 100%;
   /* margin: 100px; */
 }
-.card img{
+.card .movCard{
   max-width: 200px;
   max-height: 300px;
   margin-bottom: 15px;

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchSingleMovie } from '../../redux/actions/searchAction'
+import { fetchSingleMovie, setLoading } from '../../redux/actions/searchAction'
+import Spinner from './spinner';
 
 class Film extends Component {
     componentDidMount() {
-        this.props.fetchSingleMovie(this.props.match.params.id)
+        this.props.fetchSingleMovie(this.props.match.params.id);
+        this.props.setLoading()
     }
     render() {
         const { loading, movie } = this.props;
-
-        return (
-            // <div>
+        let movieDetailes = (
             <React.Fragment>
-                <div className="container">
+                <div className="container ">
                     <div className="row">
                         <div className="col-md-4 card card-body">
                             <img src={movie.Poster} className="thumbnail" alt="Poster" />
@@ -66,7 +66,13 @@ class Film extends Component {
                     </div>
                 </div>
             </React.Fragment>
-
+        )
+            let content = loading? <Spinner />: movieDetailes;
+        return (
+            <div>
+                {content}
+            </div>
+            
         );
     }
 }
@@ -74,4 +80,4 @@ const mapStateToProps = state => ({
     loading: state.search.loading,
     movie: state.search.movie
 })
-export default connect(mapStateToProps, { fetchSingleMovie })(Film);
+export default connect(mapStateToProps, { fetchSingleMovie, setLoading })(Film);

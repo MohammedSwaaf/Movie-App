@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchMovies, fetchMovies } from '../../redux/actions/searchAction';
+import { searchMovies, fetchMovies ,setLoading } from '../../redux/actions/searchAction';
 class SearchForm extends Component {
     // taken values 
     onChange = (e) => {
@@ -9,12 +9,13 @@ class SearchForm extends Component {
     // submit function to get the movies
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.fetchMovies(this.props.text)
+        this.props.fetchMovies(this.props.text);
+        this.props.setLoading()
     }
     render() {
         return (
             <div>
-                <div className="jumbotron jumbotron-fluid">
+                <div className="jumbotron jumbotron-fluid text-center">
                     <div className="container">
                         <h1 className="display-4 mb-3">
                             <i className='fa fa-search' /> Search for a movie or TV Series
@@ -25,7 +26,7 @@ class SearchForm extends Component {
                             <input type="text" className="form-control" id="formGroupExampleInput"
                                 placeholder="Search Movies, TV Series ..." onChange={this.onChange} />
                         </div>
-                        <button type="submit" className="btn btn-dark btn-bg mt-3">Search</button>
+                        <button type="submit" className="btn btn-dark btn-bg mt-3 ">Search</button>
 
                     </form>
                 </div>
@@ -38,4 +39,4 @@ const mapStateToProps = state => ({
     text: state.search.text
 })
 // coonect react and redux togther
-export default connect(mapStateToProps, { searchMovies, fetchMovies })(SearchForm);
+export default connect(mapStateToProps, { searchMovies, fetchMovies , setLoading})(SearchForm);
