@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         const { loading } = this.props;
         return (
-            <div className='container'>
+            <div className=''>
                 <SearchForm />
                 {loading ? <Spinner /> : <Movies />}
             </div>

@@ -13,31 +13,32 @@ class SearchForm extends Component {
         if (this.props.text.length === 0) {
             alert(`The faild can't be empty`)
         }
-        else if(this.props.text.length <= 2){
+        else if (this.props.text.length <= 2) {
             alert(`Please enter the name of movie`)
         }
         else {
             this.props.fetchMovies(this.props.text);
-            this.props.setLoading()
+            this.props.setLoading();
         }
     }
     render() {
         return (
-            <div>
-                <div className="jumbotron jumbotron-fluid text-center">
-                    <div className="container">
-                        <h1 className="display-4 mb-3">
-                            <i className='fa fa-search' /> Search for a movie or TV Series
+            <div className='app'>
+                <div className="jumbotron text-center">
+
+                    <h1 className="display-4 mb-3">
+                        <i className='fa fa-search' /> Search for a movie or TV Series
                         </h1>
-                    </div>
+                    {/* </div> */}
                     <form id='searchForm' onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <input type="text" className="form-control" id="formGroupExampleInput"
                                 placeholder="Search Movies, TV Series ..." onChange={this.onChange} />
                         </div>
-                        <button type="submit" className="btn btn-dark btn-bg mt-3 ">Search</button>
+                        <button type="submit" className="btn btnSearch btn-dark btn-bg mt-3 ">Search</button>
 
                     </form>
+
                 </div>
             </div>
         );

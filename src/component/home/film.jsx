@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchSingleMovie, setLoading } from '../../redux/actions/searchAction'
+import { fetchSingleMovie, setLoading,fetchMovies } from '../../redux/actions/searchAction'
 import Spinner from './spinner';
 
 class Film extends Component {
@@ -77,6 +77,6 @@ class Film extends Component {
 }
 const mapStateToProps = state => ({
     loading: state.search.loading,
-    movie: state.search.movie
+    movie: state.search.movie,
 })
 export default connect(mapStateToProps, { fetchSingleMovie, setLoading })(Film);
